@@ -1,0 +1,1 @@
+WebAssemblyInMVCApp1
