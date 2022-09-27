@@ -1,0 +1,34 @@
+﻿<h3>ItemComponent</h3>
+
+@if(ItemDetails is not null)
+{
+    <dl>
+        <dt>Id</dt>
+        <dd>@ItemDetails.Id</dd>
+
+        <dt>Name</dt>
+        <dd>@ItemDetails.Name</dd>
+
+        <dt>Description</dt>
+        <dd>@ItemDetails.Description</dd>
+    </dl>
+
+    <button id="CurrentCountButton" class="btn btn-primary" @onclick="CurrentCountClick">Current Count: @currentCount</button>
+}
+
+@code {
+    [Parameter]
+    public WebAssemblyInMVCApp1.Models.Item? ItemDetails { get; set; }
+
+    private int currentCount = 0;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    private void CurrentCountClick()
+    {
+        currentCount++;
+    }
+}

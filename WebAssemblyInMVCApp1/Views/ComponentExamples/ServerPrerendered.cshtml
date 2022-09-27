@@ -1,0 +1,15 @@
+﻿@model Item;
+@{
+    ViewData["Title"] = "Component Example - RenderMode.ServerPrerendered";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@await(
+    Html.RenderComponentAsync<WebAssemblyInMVCApp1.Views.Shared.Components.ItemComponent>(RenderMode.ServerPrerendered, new { ItemDetails = Model })
+)
+
+@section Scripts {
+    <base href="~/" />
+    <script src="_framework/blazor.server.js"></script>
+}

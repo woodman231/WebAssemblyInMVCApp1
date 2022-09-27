@@ -1,0 +1,22 @@
+﻿@model Item;
+@{
+    ViewData["Title"] = "Component Example - RenderMode.Static";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@await(
+    Html.RenderComponentAsync<WebAssemblyInMVCApp1.Views.Shared.Components.ItemComponent>(RenderMode.Static, new { ItemDetails = Model })
+)
+
+@section Scripts {
+    <script type="text/javascript">
+        var currentCount = 0;
+        var currentCountButton = document.getElementById('CurrentCountButton');
+
+        currentCountButton.addEventListener('click', function() {
+            currentCount++;
+            currentCountButton.textContent = "Current Count: " + currentCount;
+        });
+    </script>
+}

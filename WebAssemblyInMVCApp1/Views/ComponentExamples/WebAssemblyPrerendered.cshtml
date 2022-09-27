@@ -1,0 +1,15 @@
+﻿@model Item;
+@{
+    ViewData["Title"] = "Component Example - RenderMode.WebAssemblyPrerendered";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@await(
+    Html.RenderComponentAsync<BlazorApp1.Pages.Counter>(RenderMode.WebAssemblyPrerendered)
+)
+
+@section Scripts {
+    <base href="~/" />
+    <script src="_framework/blazor.webassembly.js"></script>
+}
